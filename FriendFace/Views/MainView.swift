@@ -5,8 +5,8 @@
 //  Created by Marvin Lee Kobert on 04.04.22.
 //
 
-import SwiftUI
 import Inject
+import SwiftUI
 
 struct MainView: View {
   @ObservedObject private var iO = Inject.observer

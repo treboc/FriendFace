@@ -12,6 +12,7 @@ struct UserDetailView: View {
   @ObservedObject private var iO = Inject.observer
   @Environment(\.dismiss) var dismiss
   @State private var showProfilePicture = false
+  @State private var aboutIsShown = false
   @State private var isAnimating = false
   let user: User
 
@@ -37,7 +38,7 @@ struct UserDetailView: View {
                   view
                     .overlay(
                       Rectangle()
-                        .fill(.red)
+                        .fill(.orange)
                         .frame(height: 2)
                         .offset(x: 0, y: 10)
                     )
@@ -82,15 +83,13 @@ struct UserDetailView: View {
           ZStack {
             Color.red
               .ignoresSafeArea()
-
-
           }
         )
     })
-    .enableLightStatusBar()
-    .navigationBarBackButtonHidden(true)
-    .navigationBarTitleDisplayMode(.inline)
-    .toolbar {
+      .enableLightStatusBar()
+      .navigationBarBackButtonHidden(true)
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar {
       ToolbarItem(id: "backButton", placement: .navigationBarLeading, showsByDefault: true) {
         toolbarBackButton
       }
@@ -120,6 +119,7 @@ extension UserDetailView {
 
   private var bioSection: some View {
     VStack(alignment: .leading) {
+      // Profile image, buttons
       HStack(spacing: 0) {
         profileImage
           .onTapGesture {
@@ -150,28 +150,53 @@ extension UserDetailView {
             .padding(.top)
         }
       }
-      .padding(.horizontal, 20)
 
+      // Name, address, joined
       VStack(alignment: .leading) {
         Text(user.name)
           .font(.headline.bold())
 
         HStack {
           Image(systemName: "house")
-          Text("\(user.address)")
+          Text("\(user.addressAsCityAndState)")
+            .font(.subheadline)
         }
-        .font(.subheadline)
         .padding(.vertical, 1)
 
         HStack {
           Image(systemName: "calendar")
           Text(user.joined)
+            .font(.subheadline)
         }
-        .font(.subheadline)
         .padding(.vertical, 1)
       }
-     .padding(.leading, 20)
+
+      HStack {
+        Text("About")
+          .font(.callout.bold())
+        Image(systemName: aboutIsShown ? "chevron.down" : "chevron.right")
+          .font(.caption)
+          .animation(.none, value: aboutIsShown)
+      }
+      .onTapGesture {
+        withAnimation {
+          aboutIsShown.toggle()
+        }
+      }
+
+      if aboutIsShown {
+        ScrollView {
+          Text(user.about)
+            .font(.callout)
+            .padding(10)
+        }
+        .overlay(
+          RoundedRectangle(cornerRadius: 10)
+            .strokeBorder(.secondary)
+        )
+      }
     }
+    .padding(.horizontal, 20)
   }
 
   private var profileImage: some View {

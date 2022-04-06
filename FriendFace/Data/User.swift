@@ -35,4 +35,11 @@ struct User: Codable, Identifiable {
     }
     return ""
   }
+
+  var addressAsCityAndState: String {
+    let adressCompontens = address.components(separatedBy: ", ")
+    let city = adressCompontens[1]
+    let state = adressCompontens[2]
+    return "\(city), \(state)"
+  }
 }

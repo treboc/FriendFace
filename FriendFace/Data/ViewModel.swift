@@ -11,6 +11,7 @@ import SwiftUI
 
 final class ViewModel: ObservableObject {
   @Published var users: [User] = []
+  var sampleImages: [Image] = []
   var cancellables = Set<AnyCancellable>()
 
   init() {
@@ -44,6 +45,7 @@ final class ViewModel: ObservableObject {
       .store(in: &cancellables)
   }
 
+  // MARK: - Sorting
   @Published var sortBy: SortingType = .byName
 
   enum SortingType: String, CaseIterable {
