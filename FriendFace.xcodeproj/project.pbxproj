@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AE0301827FB6078004B8696 /* FriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0301727FB6078004B8696 /* FriendsApp.swift */; };
-		8AE0301A27FB6078004B8696 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0301927FB6078004B8696 /* ContentView.swift */; };
+		8A62A1E627FC7A38004616EE /* LightStatusBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62A1E527FC7A38004616EE /* LightStatusBarModifier.swift */; };
+		8A62A1E927FCAF14004616EE /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 8A62A1E827FCAF14004616EE /* Inject */; };
+		8A62A1F527FD9734004616EE /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62A1F427FD9734004616EE /* FriendListCell.swift */; };
+		8A62A1F827FDAE03004616EE /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62A1F727FDAE03004616EE /* View+Extension.swift */; };
+		8AE0301827FB6078004B8696 /* FriendFaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0301727FB6078004B8696 /* FriendFaceApp.swift */; };
+		8AE0301A27FB6078004B8696 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0301927FB6078004B8696 /* MainView.swift */; };
 		8AE0301C27FB6079004B8696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE0301B27FB6079004B8696 /* Assets.xcassets */; };
 		8AE0301F27FB6079004B8696 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE0301E27FB6079004B8696 /* Preview Assets.xcassets */; };
+		8AE0302627FB608C004B8696 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0302527FB608C004B8696 /* User.swift */; };
+		8AE0302827FB6168004B8696 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0302727FB6168004B8696 /* ViewModel.swift */; };
+		8AE0302B27FB66E5004B8696 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0302A27FB66E5004B8696 /* UserListCell.swift */; };
+		8AE0302D27FB7040004B8696 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0302C27FB7040004B8696 /* UserDetailView.swift */; };
+		8AE0303027FB76F6004B8696 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE0302F27FB76F6004B8696 /* MapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8AE0301427FB6078004B8696 /* Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AE0301727FB6078004B8696 /* FriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsApp.swift; sourceTree = "<group>"; };
-		8AE0301927FB6078004B8696 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8A62A1E527FC7A38004616EE /* LightStatusBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusBarModifier.swift; sourceTree = "<group>"; };
+		8A62A1F427FD9734004616EE /* FriendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
+		8A62A1F727FDAE03004616EE /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		8AE0301427FB6078004B8696 /* FriendFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE0301727FB6078004B8696 /* FriendFaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFaceApp.swift; sourceTree = "<group>"; };
+		8AE0301927FB6078004B8696 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8AE0301B27FB6079004B8696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE0301E27FB6079004B8696 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8AE0302527FB608C004B8696 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8AE0302727FB6168004B8696 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8AE0302A27FB66E5004B8696 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		8AE0302C27FB7040004B8696 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		8AE0302E27FB7667004B8696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8AE0302F27FB76F6004B8696 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,16 +44,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A62A1E927FCAF14004616EE /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A62A1F627FDADE8004616EE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A62A1E527FC7A38004616EE /* LightStatusBarModifier.swift */,
+				8A62A1F727FDAE03004616EE /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8A62A1F927FDAE3E004616EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8AE0301927FB6078004B8696 /* MainView.swift */,
+				8AE0302A27FB66E5004B8696 /* UserListCell.swift */,
+				8AE0302C27FB7040004B8696 /* UserDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8AE0300B27FB6078004B8696 = {
 			isa = PBXGroup;
 			children = (
-				8AE0301627FB6078004B8696 /* Friends */,
+				8AE0301627FB6078004B8696 /* FriendFace */,
 				8AE0301527FB6078004B8696 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,36 +81,50 @@
 		8AE0301527FB6078004B8696 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8AE0301427FB6078004B8696 /* Friends.app */,
+				8AE0301427FB6078004B8696 /* FriendFace.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8AE0301627FB6078004B8696 /* Friends */ = {
+		8AE0301627FB6078004B8696 /* FriendFace */ = {
 			isa = PBXGroup;
 			children = (
-				8AE0301727FB6078004B8696 /* FriendsApp.swift */,
-				8AE0301927FB6078004B8696 /* ContentView.swift */,
+				8AE0301727FB6078004B8696 /* FriendFaceApp.swift */,
+				8A62A1F927FDAE3E004616EE /* Views */,
+				8A62A1F627FDADE8004616EE /* Extensions */,
+				8A62A1F427FD9734004616EE /* FriendListCell.swift */,
+				8AE0302927FB616F004B8696 /* Data */,
 				8AE0301B27FB6079004B8696 /* Assets.xcassets */,
+				8AE0302E27FB7667004B8696 /* Info.plist */,
 				8AE0301D27FB6079004B8696 /* Preview Content */,
 			);
-			path = Friends;
+			path = FriendFace;
 			sourceTree = "<group>";
 		};
 		8AE0301D27FB6079004B8696 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				8AE0302F27FB76F6004B8696 /* MapModel.swift */,
 				8AE0301E27FB6079004B8696 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8AE0302927FB616F004B8696 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8AE0302527FB608C004B8696 /* User.swift */,
+				8AE0302727FB6168004B8696 /* ViewModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8AE0301327FB6078004B8696 /* Friends */ = {
+		8AE0301327FB6078004B8696 /* FriendFace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8AE0302227FB6079004B8696 /* Build configuration list for PBXNativeTarget "Friends" */;
+			buildConfigurationList = 8AE0302227FB6079004B8696 /* Build configuration list for PBXNativeTarget "FriendFace" */;
 			buildPhases = (
 				8AE0301027FB6078004B8696 /* Sources */,
 				8AE0301127FB6078004B8696 /* Frameworks */,
@@ -82,9 +134,12 @@
 			);
 			dependencies = (
 			);
-			name = Friends;
+			name = FriendFace;
+			packageProductDependencies = (
+				8A62A1E827FCAF14004616EE /* Inject */,
+			);
 			productName = Friends;
-			productReference = 8AE0301427FB6078004B8696 /* Friends.app */;
+			productReference = 8AE0301427FB6078004B8696 /* FriendFace.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +157,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8AE0300F27FB6078004B8696 /* Build configuration list for PBXProject "Friends" */;
+			buildConfigurationList = 8AE0300F27FB6078004B8696 /* Build configuration list for PBXProject "FriendFace" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,11 +166,14 @@
 				Base,
 			);
 			mainGroup = 8AE0300B27FB6078004B8696;
+			packageReferences = (
+				8A62A1E727FCAF14004616EE /* XCRemoteSwiftPackageReference "Inject" */,
+			);
 			productRefGroup = 8AE0301527FB6078004B8696 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8AE0301327FB6078004B8696 /* Friends */,
+				8AE0301327FB6078004B8696 /* FriendFace */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AE0301A27FB6078004B8696 /* ContentView.swift in Sources */,
-				8AE0301827FB6078004B8696 /* FriendsApp.swift in Sources */,
+				8AE0302B27FB66E5004B8696 /* UserListCell.swift in Sources */,
+				8A62A1F527FD9734004616EE /* FriendListCell.swift in Sources */,
+				8AE0301A27FB6078004B8696 /* MainView.swift in Sources */,
+				8AE0302827FB6168004B8696 /* ViewModel.swift in Sources */,
+				8A62A1E627FC7A38004616EE /* LightStatusBarModifier.swift in Sources */,
+				8A62A1F827FDAE03004616EE /* View+Extension.swift in Sources */,
+				8AE0301827FB6078004B8696 /* FriendFaceApp.swift in Sources */,
+				8AE0303027FB76F6004B8696 /* MapModel.swift in Sources */,
+				8AE0302D27FB7040004B8696 /* UserDetailView.swift in Sources */,
+				8AE0302627FB608C004B8696 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +265,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -252,6 +322,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -270,6 +344,7 @@
 				DEVELOPMENT_TEAM = 8KAQMJ37RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Friends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +374,7 @@
 				DEVELOPMENT_TEAM = 8KAQMJ37RH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Friends/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,7 +396,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8AE0300F27FB6078004B8696 /* Build configuration list for PBXProject "Friends" */ = {
+		8AE0300F27FB6078004B8696 /* Build configuration list for PBXProject "FriendFace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8AE0302027FB6079004B8696 /* Debug */,
@@ -329,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8AE0302227FB6079004B8696 /* Build configuration list for PBXNativeTarget "Friends" */ = {
+		8AE0302227FB6079004B8696 /* Build configuration list for PBXNativeTarget "FriendFace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8AE0302327FB6079004B8696 /* Debug */,
@@ -339,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A62A1E727FCAF14004616EE /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A62A1E827FCAF14004616EE /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A62A1E727FCAF14004616EE /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8AE0300C27FB6078004B8696 /* Project object */;
 }

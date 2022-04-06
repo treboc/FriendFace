@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct FriendsApp: App {
+struct FriendFaceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
