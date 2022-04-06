@@ -5,9 +5,9 @@ Basically download JSON-Data, decode it and display it. As you can see, I've tri
 
 ## Screenshots
 <p float="left">
-  <img src="./screenshots/screenshot1.png" width="200" />
-  <img src="./screenshots/screenshot2.png" width="200" />
-  <img src="./screenshots/recording.gif" width="200" />
+  <img src="./screenshots/screenshot1.png" height="600" />
+  <img src="./screenshots/screenshot2.png" height="600" />
+  <img src="./screenshots/recording.gif" height="600" />
 </p>
 
 ## Requirements
