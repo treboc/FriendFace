@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="https://github.com/vogelfrey/TriomiCount/blob/main/logo.png" width=600>
-</p>
-
 # FriendFace
 This is my take on the HackingWithSwift Challenge Day 60.
 
