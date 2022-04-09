@@ -14,7 +14,7 @@ struct UserDetailView: View {
   @State private var showProfilePicture = false
   @State private var aboutIsShown = false
   @State private var isAnimating = false
-  let user: User
+  let user: CachedUser
 
   let tabs: [String] = ["Friends", "Follower"]
   @State private var chosenTab = ""
@@ -28,7 +28,7 @@ struct UserDetailView: View {
         bioSection
 
         divider
-        
+
         VStack(alignment: .leading) {
           HStack {
             ForEach(tabs, id: \.self) { tab in
@@ -54,7 +54,7 @@ struct UserDetailView: View {
 
           if chosenTab == tabs[0] {
             ScrollView(.vertical, showsIndicators: false) {
-              ForEach(user.friends, id: \.name) { friend in
+              ForEach(user.friendsArray) { friend in
                 FriendListCell(friend: friend)
               }
             }
@@ -64,7 +64,7 @@ struct UserDetailView: View {
 
           if chosenTab == tabs[1] {
             ScrollView(.vertical, showsIndicators: false) {
-              ForEach(user.friends, id: \.name) { friend in
+              ForEach(user.friendsArray) { friend in
                 FriendListCell(friend: friend)
               }
             }
@@ -81,8 +81,14 @@ struct UserDetailView: View {
       view
         .overlay(
           ZStack {
-            Color.red
+            Color.white
               .ignoresSafeArea()
+
+            Image(uiImage: ImageLoader.shared.profile!)
+              .resizable()
+              .scaledToFit()
+              .frame(maxWidth: .infinity)
+              .padding()
           }
         )
     })
@@ -101,20 +107,22 @@ struct UserDetailView: View {
 
 extension UserDetailView {
   private var header: some View {
-    AsyncImage(url: URL(string: "https://picsum.photos/900")) { image in
-      image
-        .resizable()
-        .scaledToFill()
-    } placeholder: {
-      ZStack {
-        Color.gray
-        ProgressView()
+    Group {
+      if let image = ImageLoader.shared.header {
+        Image(uiImage: image)
+          .resizable()
+          .scaledToFill()
+          .frame(height: 150)
+          .frame(maxWidth: .infinity)
+          .clipped()
+          .ignoresSafeArea()
+      } else {
+        Color.white
+          .frame(height: 150)
+          .frame(maxWidth: .infinity)
+          .ignoresSafeArea()
       }
     }
-    .frame(height: 150)
-    .frame(maxWidth: .infinity)
-    .clipped()
-    .ignoresSafeArea()
   }
 
   private var bioSection: some View {
@@ -153,7 +161,7 @@ extension UserDetailView {
 
       // Name, address, joined
       VStack(alignment: .leading) {
-        Text(user.name)
+        Text(user.wrappedName)
           .font(.headline.bold())
 
         HStack {
@@ -171,6 +179,7 @@ extension UserDetailView {
         .padding(.vertical, 1)
       }
 
+      // About
       HStack {
         Text("About")
           .font(.callout.bold())
@@ -186,7 +195,7 @@ extension UserDetailView {
 
       if aboutIsShown {
         ScrollView {
-          Text(user.about)
+          Text(user.wrappedAbout)
             .font(.callout)
             .padding(10)
         }
@@ -205,21 +214,16 @@ extension UserDetailView {
         .fill(.background)
         .frame(width: 55, height: 55)
 
-      AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-        image
+      if let image = ImageLoader.shared.profile {
+        Image(uiImage: image)
           .resizable()
           .scaledToFit()
           .frame(width: 50, height: 50)
           .clipShape(Circle())
-      } placeholder: {
-        ZStack {
-          Circle()
-            .fill(.gray)
-          ProgressView()
-        }
       }
-      .frame(width: 55, height: 55)
+
     }
+    .frame(width: 55, height: 55)
   }
 
   private var toolbarBackButton: some View {
@@ -232,15 +236,18 @@ extension UserDetailView {
         }
       }
     } label: {
-      Label(showProfilePicture ? "X" : "Back", systemImage: showProfilePicture ? "xmark" : "arrow.left")
+      Label(
+        showProfilePicture ? "X" : "Back",
+        systemImage: showProfilePicture ? "xmark" : "arrow.left"
+      )
         .font(.headline)
         .foregroundColor(.primary)
         .padding(10)
         .background(
           Circle()
-            .fill(.background)
+            .strokeBorder(showProfilePicture ? .black : .clear, lineWidth: 2)
+            .background(Circle().fill(.background))
         )
-        .animation(.default, value: showProfilePicture)
     }
   }
 

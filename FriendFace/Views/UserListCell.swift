@@ -10,25 +10,28 @@ import SwiftUI
 
 struct UserListCell: View {
   @ObservedObject private var iO = Inject.observer
-  let user: User
+  @StateObject private var imageLoader = ImageLoader()
+  @State private var isAnimated: Bool = false
+
+  let user: CachedUser
 
   var body: some View {
     HStack(spacing: 10) {
       profileImage
 
       VStack(alignment: .leading) {
-        Text(user.name)
+        Text(user.wrappedName)
           .padding(.bottom, 0)
 
         HStack {
-          Text("Age \(user.age), works at \(user.company)")
+          Text("Age \(user.age), works at \(user.wrappedCompany)")
             .font(.caption)
             .foregroundColor(.secondary)
         }
 
         HStack(spacing: 3) {
           Image(systemName: "calendar")
-          Text("here since \(user.joined)")
+          Text("\(user.joined)")
         }
         .font(.caption)
         .foregroundColor(.secondary)
@@ -50,20 +53,7 @@ struct UserListCell: View {
         .frame(width: 55, height: 55)
         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
 
-      AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-        image
-          .resizable()
-          .scaledToFit()
-          .frame(width: 50, height: 50)
-          .clipShape(Circle())
-      } placeholder: {
-        ZStack {
-          Circle()
-            .fill(.gray)
-          ProgressView()
-        }
-      }
-      .frame(width: 55, height: 55)
+      OptionalImageView(image: ImageLoader.shared.profile)
     }
   }
 
@@ -71,21 +61,11 @@ struct UserListCell: View {
     Image(systemName: "circle.fill")
       .font(.caption)
       .foregroundColor(user.isActive ? .green : .red)
-      .shadow(color: user.isActive ? .green : .red, radius: 5, x: 0, y: 0)
-  }
-}
-
-struct Tag: View {
-  let tagString: String
-  let colors: [Color] = [.green, .red, .blue, .yellow, .purple, .pink]
-
-  var body: some View {
-    Text(tagString)
-      .font(.caption2)
-      .padding(.horizontal, 4)
-      .background(
-        Capsule()
-          .fill(colors.randomElement()!)
-      )
+      .shadow(color: user.isActive ? .green : .red, radius: isAnimated ? 15 : 0, x: 0, y: 0)
+      .onAppear {
+        withAnimation(.easeInOut(duration: 0.7).repeatForever(autoreverses: false)) {
+          isAnimated.toggle()
+        }
+      }
   }
 }

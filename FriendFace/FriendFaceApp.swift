@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FriendFaceApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainView()
+  var body: some Scene {
+    WindowGroup {
+      MainView()
+        .onAppear {
+          UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         }
     }
+  }
 }

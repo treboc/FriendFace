@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FriendListCell: View {
-  let friend: User.Friend
+  let friend: CachedFriend
 
   private var profileImage: some View {
     ZStack {
@@ -17,26 +17,14 @@ struct FriendListCell: View {
         .frame(width: 45, height: 45)
         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
 
-      AsyncImage(url: URL(string: "https://picsum.photos/200")) { image in
-        image
-          .resizable()
-          .scaledToFit()
-          .frame(width: 40, height: 40)
-          .clipShape(Circle())
-      } placeholder: {
-        ZStack {
-          Circle()
-            .fill(.gray)
-          ProgressView()
-        }
-      }
+      OptionalImageView(image: ImageLoader.shared.profile)
     }
   }
 
   var body: some View {
     HStack(alignment: .center, spacing: 10) {
       profileImage
-      Text(friend.name)
+      Text(friend.wrappedName)
       Spacer()
     }
     .frame(height: 50)

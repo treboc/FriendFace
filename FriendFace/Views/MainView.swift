@@ -10,17 +10,17 @@ import SwiftUI
 
 struct MainView: View {
   @ObservedObject private var iO = Inject.observer
-  @StateObject private var dataController: ViewModel = ViewModel()
+  @StateObject private var viewModel: ViewModel = ViewModel() 
 
   var body: some View {
     NavigationView {
       List {
-        ForEach(dataController.users) { user in
+        ForEach(viewModel.users) { user in
           NavigationLink(destination: UserDetailView(user: user)) {
             UserListCell(user: user)
           }
-          .onChange(of: dataController.sortBy) { newValue in
-            dataController.sortUsers(by: newValue)
+          .onChange(of: viewModel.sortBy) { newValue in
+            viewModel.sortUsers(by: newValue)
           }
         }
       }
@@ -28,16 +28,16 @@ struct MainView: View {
       .navigationTitle("FriendFace")
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          toolbarFilterItem
+          toolbarFilterButton
         }
       }
     }
     .enableInjection()
   }
 
-  private var toolbarFilterItem: some View {
+  private var toolbarFilterButton: some View {
     Menu {
-      Picker("Sort by", selection: $dataController.sortBy) {
+      Picker("Sort by", selection: $viewModel.sortBy) {
         ForEach(ViewModel.SortingType.allCases, id: \.self) { item in
           Text(item.rawValue)
         }

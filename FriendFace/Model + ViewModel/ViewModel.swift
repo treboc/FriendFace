@@ -6,22 +6,37 @@
 //
 
 import Combine
+import CoreData
 import Foundation
 import SwiftUI
 
 final class ViewModel: ObservableObject {
-  @Published var users: [User] = []
-  var sampleImages: [Image] = []
+  @Published var users: [CachedUser] = []
   var cancellables = Set<AnyCancellable>()
 
   init() {
-    getUsers()
+    fetchAllUsers()
   }
 
-  func getUsers() {
+  func fetchAllUsers() {
+    let fetchRequest = NSFetchRequest<CachedUser>(entityName: "CachedUser")
+    do {
+      let users = try DataController.shared.container.viewContext.fetch(fetchRequest)
+      if users.count == 0 {
+        downloadUsers()
+      } else {
+        self.users = users
+      }
+    } catch {
+      print(error)
+    }
+  }
+
+  func downloadUsers() {
     guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
       return
     }
+    
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601
 
@@ -40,7 +55,10 @@ final class ViewModel: ObservableObject {
       .sink { (completion) in
         print("COMPLETION: \(completion)")
       } receiveValue: { [weak self] (users) in
-        self?.users = users
+        for user in users {
+          DataController.shared.createUser(user)
+          self?.fetchAllUsers()
+        }
       }
       .store(in: &cancellables)
   }
@@ -56,7 +74,7 @@ final class ViewModel: ObservableObject {
   func sortUsers(by sortingType: SortingType) {
     switch sortingType {
     case .byName:
-      self.users.sort { $0.name < $1.name }
+      self.users.sort { $0.wrappedName < $1.wrappedName }
     case .isActive:
       self.users.sort { $0.isActive && !$1.isActive }
     }
